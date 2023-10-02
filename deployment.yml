@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment
+  labels:
+    name: raj
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      name: raj
+  template:
+    metadata:
+      name: deploy-pod
+      labels:
+        name: raj
+    spec:
+      containers:
+        - name: deploy-cont
+          image: nginx
+          ports:
+          - containerPort: 80

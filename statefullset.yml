@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: qp-stf
+  labels:
+    app: stf
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: stf
+  template:
+    metadata:
+      name: whatever
+      labels:
+        app: stf
+    spec:
+      containers:
+        - name: my-cont
+          image: nginx
+          ports:
+          - containerPort: 80
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        resources:
+          requests:
+            storage: 1Gi
+        accessModes:
+          - ReadWriteOnce
+
+

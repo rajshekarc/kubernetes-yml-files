@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: taint-tol-pod-nos-8
+spec:
+  containers:
+    - name: my-cont
+      image: nginx
+      ports:
+        - containerPort: 80
+  tolerations:
+    - key: data
+      operator: "Equal"
+      value: army
+      effect: NoExecute

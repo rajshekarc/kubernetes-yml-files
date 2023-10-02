@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: loadbalancer-svc
+spec:
+  type: LoadBalancer
+  selector:
+    name: raj
+  externalIPs: 
+    - 52.66.163.197
+  ports:
+    - name: loadbalancer-port
+      protocol: TCP
+      port: 80
+        #  nodePort: 32700
+      targetPort: 80
